@@ -1,0 +1,23 @@
+{
+  "packages": [
+    "nodePackages.pnpm@8",
+    "postgresql_16@16",
+    "google-cloud-sdk@latest",
+    "nodejs@20",
+    "podman@4",
+    "qemu@latest",
+    "nodePackages.vercel@33.5.1",
+    "git@latest",
+    "gh@latest",
+    "act@latest",
+    "jq@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "export DOCKER_HOST=$(podman system connection ls --format=json | jq -r '.[] | select(.Default == true) | .URI')"
+    ],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}
